@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Battle The Horde </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="campo_batalla">
+        <img class="imagen1" src="{{obtenerCarta(0)}}" (click)="eventoMostrarDetalleCarta(0)" >
+        <img class="imagen1" src="{{obtenerCarta(1)}}" (click)="eventoMostrarDetalleCarta(1)" >
+        <img class="imagen1" src="{{obtenerCarta(2)}}" (click)="eventoMostrarDetalleCarta(2)" >
+        <img class="imagen1" src="{{obtenerCarta(3)}}" (click)="eventoMostrarDetalleCarta(3)" >
+        <img class="imagen1" src="{{obtenerCarta(4)}}" (click)="eventoMostrarDetalleCarta(4)" >
+        <img class="imagen1" src="{{obtenerCarta(5)}}" (click)="eventoMostrarDetalleCarta(5)" >
+        <img class="imagen1" src="{{obtenerCarta(6)}}" (click)="eventoMostrarDetalleCarta(6)" >
+        <img class="imagen1" src="{{obtenerCarta(7)}}" (click)="eventoMostrarDetalleCarta(7)" >
+        <img class="imagen1" src="{{obtenerCarta(8)}}" (click)="eventoMostrarDetalleCarta(8)" >
+        <img class="imagen1" src="{{obtenerCarta(9)}}" (click)="eventoMostrarDetalleCarta(9)" >
+        <img class="imagen1" src="{{obtenerCarta(10)}}" (click)="eventoMostrarDetalleCarta(10)" >
+        <img class="imagen1" src="{{obtenerCarta(11)}}" (click)="eventoMostrarDetalleCarta(11)" >
+        <img class="imagen1" src="{{obtenerCarta(12)}}" (click)="eventoMostrarDetalleCarta(12)" >
+        <img class="imagen1" src="{{obtenerCarta(13)}}" (click)="eventoMostrarDetalleCarta(13)" >
+        <img class="imagen1" src="{{obtenerCarta(14)}}" (click)="eventoMostrarDetalleCarta(14)" >
+    </ion-card>
+  
+    <button class="turno_horda" (click)="robarCarta()">Robar Carta</button>
+    <button class="danio_horda" (click)="aplicarDanio()">Daño Horda</button>
+    <ion-card>
+        <ion-card-title>Cartas mazo: {{this.campoBatalla.mazo.listadoCartas.length}} </ion-card-title>
+        <ion-card-title>Cartas cementerio: {{this.campoBatalla.listadoCementerio.length}}</ion-card-title>
+        <ion-card-title>Cartas en juego: {{this.campoBatalla.cartasEnJuego.length}}</ion-card-title>
+        <ion-card-title>Estado Juego: {{estadoJuego}}</ion-card-title>
+    </ion-card>
+</ion-content>
+
+<section class="modal_informativo" *ngIf="mostrarDetalleCarta" ion-fixed>
+    <article class="modal_cnt">
+        <ion-card class="modal">
+            <ion-card-header class="header">
+                <button class="danio_horda" (click)="mostrarDetalleCarta = false">cerrar</button>
+                <button class="danio_horda" (click)="descargarCartaEnJuego()">Descartar</button>
+            </ion-card-header>
+            <ion-card-content class="body">
+                <img  class="imagen_modal" src="{{rutaCartaSeleccionada}}" (click)="descargarCartaEnJuego()" >
+            </ion-card-content>
+        </ion-card>
+    </article>
+</section>
