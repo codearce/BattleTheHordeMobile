@@ -1,5 +1,7 @@
 {
   "name": "BattleTheHordeMobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

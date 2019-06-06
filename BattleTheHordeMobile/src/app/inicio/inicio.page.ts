@@ -15,7 +15,8 @@ export class InicioPage {
 
   mostrarDetalleCarta: boolean = false;
   rutaCartaSeleccionada: string = "";
-  indexCartaSeleccionada: number = -1;
+  cartaSeleccionada: any;
+  cantidadVidasJugador: number = 20;
 
   constructor() { 
     this.campoBatalla = new CampoBatalla();
@@ -62,20 +63,29 @@ export class InicioPage {
     }
   }
 
-  eventoMostrarDetalleCarta(indice){
-    console.log("eliminar carta " + indice);
-    this.indexCartaSeleccionada = indice;
+  eventoMostrarDetalleCarta(carta:any){
+    this.cartaSeleccionada = carta;
     this.mostrarDetalleCarta = true;
-    let carta = this.campoBatalla.cartasEnJuego[indice];
     this.rutaCartaSeleccionada = carta.idImagenCarta;
   }
 
   descargarCartaEnJuego(){
-    console.log("descargar carta " +  this.indexCartaSeleccionada);
     this.mostrarDetalleCarta = false;
-    let cartaEliminada = this.campoBatalla.cartasEnJuego.splice(this.indexCartaSeleccionada,1);
+    let indiceEliminar = this.campoBatalla.cartasEnJuego.indexOf(this.cartaSeleccionada);
+    console.log(">>> indiceEliminar" + indiceEliminar);
+    let cartaEliminada = this.campoBatalla.cartasEnJuego.splice(indiceEliminar,1);
     this.campoBatalla.listadoCementerio.push(cartaEliminada);
-    this.indexCartaSeleccionada = -1;
     this.validarEstadoJuego();
+  }
+
+  sumarVida(){
+    this.cantidadVidasJugador ++;
+  }
+
+  restarVida(){
+    this.cantidadVidasJugador --;
+    if(this.cantidadVidasJugador <= 0){
+      this.estadoJuego = "LOSE WORK MELDA!";
+    }
   }
 }
