@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
-  { path: 'inicio', loadChildren: './inicio/inicio.module#InicioPageModule' },
+  { path: 'inicio', loadChildren: './inicio/inicio.module#InicioPageModule' }
 ];
 
 @NgModule({

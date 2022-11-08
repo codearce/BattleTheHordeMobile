@@ -1,0 +1,36 @@
+.md, .ios{
+    .imagen1 {
+        width: 25%;
+        height: 20%;
+    }
+
+    .campo_batalla {
+        display: inline;
+       //width: 
+    }
+
+    .turno_horda{
+        padding-right: 10px;
+        background-color: green;
+        height: 30px;
+    }
+
+    .danio_horda{
+        padding-right: 10px;
+        background-color: red;
+        height: 30px;
+    }
+
+    .modal_informativo{ 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .imagen_modal {
+        width: 60%;
+        height: 90%;
+    }
+}

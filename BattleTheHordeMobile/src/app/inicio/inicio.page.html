@@ -1,0 +1,23 @@
+<ion-content class="modal_informativo" *ngIf="mostrarDetalleCarta">
+    <button (click)="mostrarDetalleCarta = false">cerrar</button>
+    <button class="danio_horda" (click)="descargarCartaEnJuego()">Descartar</button>
+    <br>
+    <img class="imagen_modal" src="{{rutaCartaSeleccionada}}">
+</ion-content>
+<ion-content>
+    <section class="campo_batalla" *ngFor="let carta of campoBatalla.cartasEnJuego; let i = index">
+        <img class="imagen1" src="{{carta.idImagenCarta}}" (click)="eventoMostrarDetalleCarta(carta)" >
+    </section>
+    <br>
+    <button class="turno_horda" (click)="robarCarta()">Robar Carta</button>
+    <button class="danio_horda" (click)="aplicarDanio()">Daño Horda</button>
+    <ion-card>
+        <ion-card-title>Cartas mazo: {{this.campoBatalla.mazo.listadoCartas.length}} </ion-card-title>
+        <ion-card-title>Cartas cementerio: {{this.campoBatalla.listadoCementerio.length}}</ion-card-title>
+        <ion-card-title>Cartas en juego: {{this.campoBatalla.cartasEnJuego.length}}</ion-card-title>
+        <ion-card-title>Estado Juego: {{estadoJuego}}</ion-card-title>
+        <ion-card-title>Vidas Jugador: {{cantidadVidasJugador}}</ion-card-title>
+        <button class="turno_horda" (click)="sumarVida()">Robar Carta</button>
+        <button class="danio_horda" (click)="restarVida()">Daño Horda</button>
+    </ion-card>
+</ion-content>
